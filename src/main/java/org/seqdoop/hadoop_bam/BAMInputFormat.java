@@ -258,12 +258,16 @@ public class BAMInputFormat
 
 		for (int i = 0; i < origSplits.size();) {
 			try {
+                            System.err.println("Trying to add .splitting_bai splits.");
 				i = addIndexedSplits                        (origSplits, i, newSplits, cfg);
 			} catch (IOException | ProviderNotFoundException e) {
+                            System.err.println("Caught exception " + e);
 				if (cfg.getBoolean(ENABLE_BAI_SPLIT_CALCULATOR, false)) {
 					try {
+                            System.err.println("Trying to add .bai splits.");
 						i = addBAISplits            (origSplits, i, newSplits, cfg);
 					} catch (IOException | ProviderNotFoundException e2) {
+                            System.err.println("Caught exception " + e2);
 						i = addProbabilisticSplits  (origSplits, i, newSplits, cfg);
 					}
 				} else {
@@ -352,8 +356,11 @@ public class BAMInputFormat
 
                         final SeekableStream sin;
                         if (fs.exists(getBAIPath(path))) {
+                            System.err.println("Trying to open index at " + getBAIPath(path));
                                 sin = WrapSeekable.openPath(fs, getBAIPath(path));
                         } else {
+                            System.err.println("Trying to open index at " + path.toString()
+                                               .replaceFirst("\\.bam$", BAMIndex.BAMIndexSuffix));
                                 sin = WrapSeekable.openPath(fs, new Path(path.toString()
                                                                          .replaceFirst("\\.bam$", BAMIndex.BAMIndexSuffix)));
                         }
