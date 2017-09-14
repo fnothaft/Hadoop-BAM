@@ -30,7 +30,7 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.seqdoop</groupId>
+    <groupId>net.fnothaft</groupId>
     <artifactId>hadoop-bam</artifactId>
     <version>7.9.1-SNAPSHOT</version>
     <packaging>jar</packaging>
@@ -63,9 +63,9 @@
     </licenses>
 
     <scm>
-        <connection>scm:git:git@github.com:HadoopGenomics/Hadoop-BAM.git</connection>
-        <developerConnection>scm:git:git@github.com:HadoopGenomics/Hadoop-BAM.git</developerConnection>
-        <url>scm:git:git@github.com:HadoopGenomics/Hadoop-BAM.git</url>
+        <connection>scm:git:git@github.com:fnothaft/Hadoop-BAM.git</connection>
+        <developerConnection>scm:git:git@github.com:fnothaft/Hadoop-BAM.git</developerConnection>
+        <url>scm:git:git@github.com:fnothaft/Hadoop-BAM.git</url>
         <tag>master</tag>
     </scm>
     <developers>
